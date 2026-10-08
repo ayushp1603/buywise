@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: buywise-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: buywise
+      POSTGRES_USER: buywise
+      POSTGRES_PASSWORD: buywise_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - buywise_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  buywise_postgres_data:
